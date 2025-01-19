@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mamadou DIOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #007BFF;
+            color: #fff;
+            padding: 20px 10%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            color: #007BFF;
+        }
+
+        .expertises {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+
+        .expertise-item {
+            margin: 20px 0;
+        }
+        .expertise-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .expertise-title {
+            font-size: 1.5em;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+        .expertise-description {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .project-item {
+            background: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .project-item h3 {
+            color: #0056b3;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer img {
+            width: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Mamadou DIOP</h1>
+        <nav>
+            <a href="#about">Accueil</a>
+            <a href="#projects">Mes Projets</a>
+            <a href="CV_Mamadou_DIOP_NR.pdf" download="CV_DIOP_Mamadou">Télécharger mon CV</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <div class="container" id="about">
+        <h2>Bienvenue sur mon Portfolio</h2>
+        <p>Je suis Mamadou Diop, Statisticien et Data Analyst / Scientist, passionné par l’analyse de données, la modélisation prédictive, la visualisation et la création de solutions basées sur les données pour répondre à des enjeux stratégiques.</p>
+        <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" style="color: #007BFF; text-decoration: none; font-size: 1.2em;">Consulter mon LinkedIn</a>
+    </div>
+
+    <!-- Expertise Section -->
+    <div class="container">
+        <h2>Mes Expertises</h2>
+        <div class="expertises">
+            <div class="expertise-item"><h3>Programmation</h3>
+ <img src="code.jpeg" alt="Programming expertise">
+            <p class="expertise-description">
+                R, SAS, et Python. Développement d'algorithmes performants et optimisés pour des analyses complexes.
+            </p>
+</div>
+            <div class="expertise-item"><h3>Bases de Données</h3>
+<img src="base.jpg" alt="Database expertise">
+            <p class="expertise-description">
+                Expertise en SQL et gestion de grands ensembles de données. Expérience dans la conception et le traitement de bases de données robustes.
+            </p>
+</div>
+            <div class="expertise-item"><h3> Business Intelligence</h3>
+            <img src="visual.jpeg" alt="Data Visualization expertise">
+            <p class="expertise-description">
+               Conception, modélisation et création de dashboards dynamiques (Power BI, R Shiny,Streamlit),
+                pour faciliter la prise de décision.
+            </p>
+</div>
+            <div class="expertise-item"><h3> Data Science</h3>
+<img src="datasc.png" alt="Data Science expertise">
+            <p class="expertise-description">
+              Développement et Optimisation de modèles(Statistiques , Machine Learning , Deep Learning) </p>
+</div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="container" id="projects">
+        <h2>Mes Projets</h2>
+        <a href="projets.html" style="color: #007BFF; text-decoration: none; font-size: 1.2em;">Voir mes projets</a>
+        
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+        <h2>Contact</h2>
+        <p>Vous pouvez me joindre à : <a href="mailto:mamadoudiop084@gmail.com"><button>contactez-moi</button></a></p>
+            </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 My Portfolio.DIOPStat.</p>
+         <h3>Follow me on</h3>
+        <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank">
+            <img src="imagesLd.png" alt="LinkedIn"> LinkedIn
+        </a>
+        <a href="https://github.com/Mamadou1008" target="_blank">
+            <img src="imageGp.png" alt="GitHub"> GitHub
+        </a>
+    </footer>
+</body>
+</html>
