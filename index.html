@@ -1,1626 +1,652 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamadou DIOP — Founder, NRM DATA | Data Analyst & Statisticien Freelance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-      (function(){
-        emailjs.init({ publicKey: "eLc361bd_zQtJ76bz" });
-      })();
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #1A3C6E 0%, #2B5FA0 100%);
-        }
-        
-        .gradient-bg-alt {
-            background: linear-gradient(135deg, #2B5FA0 0%, #E8630A 100%);
-        }
-        
-        .glass-effect {
-            background: #ffffff;
-            backdrop-filter: blur(10px);
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 24px rgba(26,60,110,0.08);
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgba(26, 60, 110, 0.15);
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out;
-        }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.7;
-            animation: blob 7s infinite;
-        }
-        
-        @keyframes blob {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-        
-        .project-badge {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .expertise-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover .expertise-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f0f2f5;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            border-radius: 5px;
-        }
-        
-        .stagger-1 {
-            animation-delay: 0.1s;
-        }
-        
-        .stagger-2 {
-            animation-delay: 0.2s;
-        }
-        
-        .stagger-3 {
-            animation-delay: 0.3s;
-        }
-        
-        .stagger-4 {
-            animation-delay: 0.4s;
-        }
-        
-        .pricing-card {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .pricing-card:hover::before {
-            left: 100%;
-        }
-        
-        .check-icon {
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        input, textarea, select {
-            background: #f8f9fb;
-            border: 1.5px solid #d1d5db;
-            color: #111827;
-            padding: 12px 16px;
-            border-radius: 8px;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #1A3C6E;
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(26,60,110,0.1);
-        }
-        
-        input::placeholder, textarea::placeholder {
-            color: #9ca3af;
-        }
-        
-        .process-step {
-            position: relative;
-        }
-        
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -50%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #1A3C6E, transparent);
-        }
-        
-        .process-step:last-child::after {
-            display: none;
-        }
-        
-        /* Case Study Expandable */
-        .case-study {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        
-        .case-study.open {
-            max-height: 500px;
-        }
-        
-        /* Live Stats Counter */
-        .stat-counter {
-            font-variant-numeric: tabular-nums;
-        }
-        
-        /* Tech Stack Visualization */
-        .tech-bar {
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 999px;
-            overflow: hidden;
-        }
-        
-        .tech-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            border-radius: 999px;
-            animation: fillBar 2s ease-out forwards;
-        }
-        
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-        
-        /* Testimonial Cards */
-        .testimonial-card {
-            background: #ffffff;
-            border-left: 4px solid #E8630A;
-            box-shadow: 0 4px 20px rgba(26,60,110,0.08);
-        }
-        
-        /* Chatbot Toggle */
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1A3C6E 0%, #E8630A 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(26, 60, 110, 0.5);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        
-        .chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
-        
-        .chatbot-window {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
-            background: #ffffff;
-            backdrop-filter: blur(20px);
-            border: 1px solid #e5e7eb;
-            border-radius: 20px;
-            display: none;
-            flex-direction: column;
-            z-index: 999;
-            overflow: hidden;
-        }
-        
-        .chatbot-window.open {
-            display: flex;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NRM DATA — Mamadou Diop, data analyst et statisticien freelance</title>
+<meta name="description" content="Mamadou Diop, statisticien et data analyst freelance. Dashboards Power BI, analyses statistiques, modèles prédictifs et automatisation pour les entreprises.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F5; --surface:#FFFFFF; --ink:#16262B; --text:#3A484D; --muted:#66757A;
+  --line:#D8DFDD; --teal:#0E6B6B; --teal-soft:#DCEBE9; --ochre:#B97A0C; --grid:rgba(22,38,43,.09);
+  --shadow:0 1px 1px rgba(22,38,43,.05),0 14px 28px -10px rgba(22,38,43,.20),0 44px 90px -30px rgba(22,38,43,.32);
+  --font:"Schibsted Grotesk",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#101A1D; --surface:#17252A; --ink:#EAF0EE; --text:#C3CECB; --muted:#8C9B98;
+    --line:#2A3B40; --teal:#4FB3AE; --teal-soft:#173A3B; --ochre:#E0A53A; --grid:rgba(234,240,238,.07);
+    --shadow:0 1px 1px rgba(0,0,0,.3),0 14px 28px -10px rgba(0,0,0,.5),0 44px 90px -30px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101A1D; --surface:#17252A; --ink:#EAF0EE; --text:#C3CECB; --muted:#8C9B98;
+  --line:#2A3B40; --teal:#4FB3AE; --teal-soft:#173A3B; --ochre:#E0A53A; --grid:rgba(234,240,238,.07);
+  --shadow:0 1px 1px rgba(0,0,0,.3),0 14px 28px -10px rgba(0,0,0,.5),0 44px 90px -30px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{overflow-x:hidden}@supports (overflow:clip){body{overflow-x:clip}}
+body{margin:0;-webkit-text-size-adjust:100%;background:var(--paper);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1}
+img{max-width:100%;display:block}
+a{color:var(--teal)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+h1,h2,h3{color:var(--ink);line-height:1.15;margin:0;font-weight:600;letter-spacing:-.015em}
+h2{font-size:clamp(28px,3.4vw,40px)}
+h3{font-size:20px}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:104px 0}
+.section-head{max-width:640px;margin-bottom:52px}
+.section-head p{margin-top:14px;color:var(--muted);font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:background-color .15s}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--teal)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+@supports (background:color-mix(in srgb,red 50%,blue)) and ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){header{background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px)}}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:19px;letter-spacing:-.02em}
+.logo svg{width:28px;height:28px}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--text);text-decoration:none;font-size:15px;font-weight:500}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{padding:9px 16px;font-size:15px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--ink);font:inherit;font-size:15px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:84px 0 96px;isolation:isolate}
+.hero::before{content:"";position:absolute;left:-30%;right:-30%;bottom:-8%;height:62%;z-index:-2;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:56px 56px;transform:perspective(700px) rotateX(64deg);transform-origin:50% 100%;
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 85%);mask-image:linear-gradient(to top,#000 10%,transparent 85%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 90% at 70% 40%,transparent 55%,rgba(22,38,43,.10) 130%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5vw,62px);font-weight:600;letter-spacing:-.03em;line-height:1.04;max-width:12ch}
+.hero .lede{margin-top:24px;font-size:19px;max-width:34em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.byline{display:flex;align-items:center;gap:14px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);max-width:460px}
+.avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;flex:none;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-weight:700}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.byline strong{color:var(--ink);display:block;font-weight:600}
+.byline span{font-size:15px;color:var(--muted)}
+.dot-live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2F9E62;margin-right:6px;vertical-align:1px;box-shadow:0 0 0 3px rgba(47,158,98,.25)}
+
+/* Scene en perspective */
+.scene{position:relative;height:500px;perspective:1500px;perspective-origin:30% 40%}
+.panel{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter 1.1s}
+.panel-far{width:300px;top:10px;right:-30px;transform:translateZ(-380px) rotateY(-24deg);filter:blur(4px);opacity:.75}
+.panel-main{width:560px;top:60px;left:0;transform:rotateY(-17deg) rotateX(6deg) rotateZ(.4deg)}
+.panel-front{width:300px;bottom:0;right:10px;transform:translateZ(110px) rotateY(-12deg) rotateX(4deg)}
+.scene.flat .panel-main{transform:rotateY(0) rotateX(0)}
+.scene.flat .panel-front{transform:translateZ(0) translateY(30px)}
+.scene.flat .panel-far{filter:blur(0)}
+.panel svg{display:block;width:100%;height:auto}
+.panel-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.panel-bar b{color:var(--ink);font-weight:600}
+.chip{border:1px solid var(--line);border-radius:5px;padding:2px 7px;font-size:11.5px}
+
+/* Expertise */
+.stack{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+.stack .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stack div.col{padding:30px 26px;border-left:1px solid var(--line)}
+.stack div.col:last-child{border-right:1px solid var(--line)}
+.stack h3{font-size:16px;margin-bottom:10px}
+.stack p{font-size:15px;color:var(--muted);line-height:1.55}
+
+/* Services */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.service{padding:28px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:18px}
+.service svg{width:32px;height:32px;color:var(--teal)}
+.service p{margin-top:8px}
+.service .tags{margin-top:12px;font-size:14.5px;color:var(--muted)}
+
+/* Cas clients */
+#projets{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start;padding:56px 0;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0;padding-top:0}
+.case.reverse .case-media{order:2}
+.shot{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);position:relative}
+.shot img{width:100%;height:auto}
+.shot .fallback{display:none;position:absolute;inset:0;padding:22px;flex-direction:column;justify-content:flex-end;background:
+  linear-gradient(var(--grid) 1px,transparent 1px) 0 0/100% 32px, var(--paper)}
+.shot .fallback span{color:var(--ink);font-weight:600;font-size:18px}
+.shot .fallback small{color:var(--muted);font-size:14px}
+.shot.noimg{aspect-ratio:16/10}.shot.noimg img{display:none}.shot.noimg .fallback{display:flex}
+.tools{font-size:14.5px;color:var(--teal);font-weight:600;margin-bottom:10px}
+.case h3{font-size:26px;letter-spacing:-.02em}
+.case dl{margin:22px 0 0}
+.case dt{font-weight:600;color:var(--ink);font-size:15px;margin-top:16px}
+.case dd{margin:4px 0 0}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.results div{border-left:2px solid var(--teal);padding:2px 0 2px 12px}
+.results strong{display:block;color:var(--ink);font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.results span{font-size:14px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+.case .more{display:inline-block;margin-top:24px;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor}
+
+.others{margin-top:40px}
+.others h3{font-size:20px;margin-bottom:18px}
+.others table{width:100%;border-collapse:collapse;font-size:16px}
+.others th{text-align:left;font-weight:500;font-size:14px;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.others td{padding:16px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.others td:first-child{color:var(--ink);font-weight:600}
+.others td small{display:block;font-weight:400;color:var(--muted);font-size:14.5px;margin-top:2px}
+.table-scroll{overflow-x:auto}
+
+/* Méthode */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s;list-style:none;padding:0;margin:0;position:relative}
+.steps li{position:relative;padding-top:56px}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-weight:600;color:var(--ink);background:var(--paper)}
+.steps li::after{content:"";position:absolute;top:18px;left:44px;right:-20px;height:1px;background:var(--line)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:18px}
+.steps p{margin-top:8px;font-size:15.5px}
+.steps .when{display:block;margin-top:10px;font-size:14px;color:var(--teal);font-weight:600}
+
+/* Approche */
+.approach{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.approach blockquote{margin:0;font-size:clamp(22px,2.4vw,28px);line-height:1.35;color:var(--ink);font-weight:500;letter-spacing:-.015em}
+.approach blockquote footer{margin-top:20px;font-size:15px;color:var(--muted);font-weight:400}
+.principles div{padding:20px 0;border-top:1px solid var(--line)}
+.principles div:first-child{border-top:0;padding-top:0}
+.principles p{margin-top:6px}
+
+/* Témoignages */
+.quotes{display:grid;grid-template-columns:1.25fr 1fr;gap:28px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:34px}
+.quote p{font-size:17.5px;color:var(--ink);line-height:1.6}
+.quote .who{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.quote .who b{color:var(--ink);display:block}
+.quote .who span{font-size:14.5px;color:var(--muted)}
+.initials{width:40px;height:40px;border-radius:50%;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.profiles{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* Tarifs + contact */
+#contact{background:var(--ink);color:#C9D4D2}
+#contact h2,#contact h3{color:#F4F6F5}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px}
+.rate{margin-top:36px;padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:12px}
+.rate .price{font-size:48px;font-weight:600;color:#F4F6F5;letter-spacing:-.03em;line-height:1}
+.rate .price small{font-size:16px;font-weight:400;color:#9FB0AD;letter-spacing:0;margin-left:6px}
+.rate ul{margin:20px 0 0;padding-left:18px}
+.rate li{margin-top:6px}
+.rate p{margin-top:16px;font-size:14.5px;color:#9FB0AD}
+.direct{margin-top:28px;display:grid;gap:8px;font-size:16px}
+.direct a{color:#F4F6F5}
+form{background:var(--surface);color:var(--text);border-radius:12px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+label span{color:var(--muted);font-weight:400}
+input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:11px 12px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:0;border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+.form-note{font-size:14px;color:var(--muted)}
+.form-status{font-size:15px;color:var(--teal);font-weight:600}
+
+footer.site{padding:36px 0;border-top:1px solid rgba(255,255,255,.12);background:var(--ink);color:#9FB0AD;font-size:14.5px}
+footer.site .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer.site nav{display:flex;gap:20px}
+footer.site a{color:#C9D4D2;text-decoration:none}
+footer.site a:hover{color:#fff}
+
+/* Responsive */
+@media (max-width:1020px){
+  .hero-grid,.approach,.contact-grid,.case,.quotes{grid-template-columns:1fr}
+  .case.reverse .case-media{order:0}
+  .scene{height:430px;max-width:600px}
+  .panel-main{width:min(520px,92%)}
+  .stack .wrap{grid-template-columns:1fr 1fr}
+  .stack div.col:nth-child(3){border-top:1px solid var(--line)}
+  .stack div.col:nth-child(4){border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li::after{display:none}
+}
+@media (max-width:760px){
+  section{padding:76px 0}
+  .wrap{padding:0 20px}
+  .nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 20px 16px}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:12px 0}
+  .nav .btn{display:none}
+  .menu-toggle{display:block}
+  .services,.stack .wrap,.steps{grid-template-columns:1fr}
+  .stack div.col{border-left:0!important;border-right:0!important;border-top:1px solid var(--line);padding:22px 0}
+  .stack div.col:first-child{border-top:0}
+  .scene{height:auto;perspective:none}
+  .panel{position:relative;transform:none!important;filter:none!important}
+  .panel-far{display:none}
+  .panel-main{width:100%;top:0}
+  .panel-front{width:82%;margin:-40px 0 0 auto;top:0;right:0;bottom:auto}
+  .hero{padding:48px 0 64px}
+  .hero .actions .btn{flex:1 1 100%;justify-content:center}
+  .case{gap:28px;padding:44px 0}
+  .case h3{font-size:22px}
+  .others thead{display:none}
+  .others tr{display:block;padding:16px 0;border-bottom:1px solid var(--line)}
+  .others td{display:block;padding:2px 0;border:0}
+  .others td:nth-child(2){font-size:14.5px;color:var(--teal);font-weight:600;margin-top:6px}
+  .quote{padding:24px}
+  .contact-grid{gap:44px}
+  .rate .price{font-size:40px!important}
+  .results{grid-template-columns:1fr}
+  form{grid-template-columns:1fr;padding:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-<body class="text-gray-900" style="background:#f8f9fb;">
+<body>
 
-    <!-- No blobs on light theme -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#accueil" aria-label="NRM DATA, accueil">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="6" fill="var(--ink)"/><path d="M7 19 L11.5 13.5 L15.5 16 L21 8.5" stroke="var(--paper)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="8.5" r="2" fill="var(--paper)"/></svg>
+      NRM DATA
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Cas clients</a></li>
+      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Tarif et contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#contact">Réserver un appel</a>
+  </div>
+</header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50" style="background:#fff;border-bottom:1.5px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.07);">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold" style="color:#1A3C6E;">Mamadou DIOP — Founder, NRM DATA</h1>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#accueil" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Accueil</a>
-                    <a href="#apropos" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Pourquoi moi</a>
-                    <a href="#services" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Services</a>
-                    <a href="#projets" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Projets</a>
-                    <a href="#tarifs" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Tarifs</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-orange-500 font-medium">Contact</a>
-                </div>
-                <a href="#contact" class="hidden md:block gradient-bg px-6 py-2 rounded-full font-semibold hover-scale text-white">
-                    Appel découverte gratuit
-                </a>
-            </div>
+<main id="accueil">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Transformez vos données en décisions.</h1>
+      <p class="lede">J'aide les entreprises à exploiter leurs données : tableaux de bord Power BI, analyses statistiques, modèles prédictifs et automatisation des rapports. Des résultats lisibles par vos équipes, pas seulement par des spécialistes.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Réserver un appel découverte</a>
+        <a class="btn btn-ghost" href="#projets">Voir les cas clients</a>
+      </div>
+      <div class="byline">
+        <div class="avatar"><img src="https://nrmdata.fr/mad.jpg" alt="Mamadou Diop" onerror="var p=this.parentNode;this.remove();p.textContent='MD'"></div>
+        <div>
+          <strong>Mamadou Diop</strong>
+          <span>Statisticien de formation, fondateur de NRM DATA<br><i class="dot-live" aria-hidden="true"></i>Disponible pour de nouvelles missions</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="accueil" class="relative min-h-screen flex items-center justify-center pt-20" style="background:linear-gradient(135deg,#f0f4fa 0%,#fef9f5 100%);">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Content -->
-            <div class="space-y-6 slide-in-left">
-                <div class="inline-block">
-                    <span class="text-orange-400 text-sm font-semibold tracking-wider uppercase"> NRM DATA | Data Analyst & Statisticien Freelance — Mamadou DIOP</span>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
-                   Transformez  
-                    <span class="gradient-text block">vos données</span>
-                    en décisions et en résultats.
-                </h1>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    NRM DATA accompagne les entreprises dans leurs projets de Data Analytics, Data Science et Business Intelligence : analyse de données, dashboards Power BI, statistiques, modèles prédictifs et automatisation.
-                </p>
-<div class="text-center">
-<div class="text-3xl font-bold gradient-text">Data Analytics . Data Science . Business Intelligence . Analyse Statistique </div>
-</div>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#contact" class="gradient-bg px-8 py-4 rounded-full font-semibold hover-scale inline-flex items-center space-x-2 text-white">
-                        <span>Démarrons votre projet</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </a>
-                    <a href="#projets" class="bg-white border-2 border-navy px-8 py-4 rounded-full font-semibold hover-scale text-gray-800" style="border-color:#1A3C6E;color:#1A3C6E;">
-                        Voir mes cas clients
-                    </a>
-                </div>
-                
-                <!-- Live Stats with Counter Animation -->
-                <div class="grid grid-cols-3 gap-6 pt-8">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">2+</div>
-                        <div class="text-gray-500 text-sm mt-1">Ans d'expérience</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">7+</div>
-                        <div class="text-gray-500 text-sm mt-1">Projets livrés</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold gradient-text">85%</div>
-                        <div class="text-gray-500 text-sm mt-1">Satisfaction client</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Content - Profile Image -->
-            <div class="slide-in-right hidden md:block">
-                <div class="relative">
-                    <div class="absolute inset-0 gradient-bg rounded-full blur-3xl opacity-30"></div>
-                    <div class="relative bg-white rounded-3xl p-6 border border-gray-100" style="box-shadow:0 8px 40px rgba(26,60,110,0.12);">
-                        <img src="mad.jpg" alt="Mamadou DIOP" class="aspect-square rounded-2xl object-cover w-full h-full shadow-2xl">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Visualization -->
-    <section class="py-16 relative" style="background:#f0f4fa;">
-        <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-2xl font-bold text-center mb-12" style="color:#1A3C6E;">Mon expertise</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                <!-- BI & Data Viz -->
-                <div class="bg-white rounded-2xl p-6" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-base">BI & Data Viz</h4>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Power BI (DAX, Power Query)</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Excel / VBA</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Construction de KPI</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Reporting décisionnel</li> 
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Data Visualization</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Python (Matplotlib, Seaborn, Dash)</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>R Shiny</li>
-                    </ul>
-                </div>
-
-                <!-- Langages -->
-                <div class="bg-white rounded-2xl p-6" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-base">Langages</h4>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1A3C6E;"></span>Python (Pandas, NumPy, Matplotlib, Scikit-learn)</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1A3C6E;"></span>R</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1A3C6E;"></span>SQL</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#1A3C6E;"></span>SAS</li>
-                    </ul>
-                </div>
-
-                <!-- Outils -->
-                <div class="bg-white rounded-2xl p-6" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                        </div>
-                        <h4 class="font-bold text-base">Outils</h4>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#2B5FA0;"></span>Git/Githup</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#2B5FA0;"></span>R Shiny</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#2B5FA0;"></span>SAS</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#2B5FA0;"></span>Power BI</li>
-                    </ul>
-                </div>
-
-                <!-- Statistiques & ML -->
-                <div class="bg-white rounded-2xl p-6" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
-                        </div>
-                        <h4 class="font-bold text-base">Statistiques & ML</h4>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Modélisation statistique</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Statistiques descriptives et inférentielles</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Prévision séries temporelles (ARIMA)</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Analyse de risques</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Communication métier & vulgarisation</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Analyse de données</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Dashbord KPI</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Machine Learning</li>
-                        <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#E8630A;"></span>Organisation & rigueur</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Me Section (NEW) -->
-    <section id="apropos" class="py-24 relative" style="background:#ffffff;">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="rounded-3xl p-12" style="background:#ffffff;border:1.5px solid #e5e7eb;box-shadow:0 4px 32px rgba(26,60,110,0.07);">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                        Pourquoi <span class="gradient-text">me choisir ?</span>
-                    </h2>
-                    <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-                        Plus qu'un expert technique, un partenaire qui comprend vos enjeux business
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Left: Video Placeholder -->
-                    <div class="rounded-2xl overflow-hidden flex items-center justify-center min-h-[300px]" style="background:linear-gradient(135deg,#eef2f8 0%,#fef4ee 100%);border:1.5px solid #e5e7eb;">
-                        <div class="text-center">
-                            <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-10 h-10" fill="white" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-500">Vidéo de présentation (30 sec)</p>
-                            <p class="text-sm text-gray-400 mt-2">À venir prochainement</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Right: Key Differentiators -->
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Vision Business First</h3>
-                                <p class="text-gray-600 text-sm">Je ne code pas pour coder. Chaque ligne vise un impact métier mesurable : +15% de marge, -30% de temps sur les rapports...</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Pédagogue & Accessible</h3>
-                                <p class="text-gray-400 text-sm">Je vulgarise la complexité. Vos équipes non-tech comprennent mes analyses et savent s'en servir au quotidien.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Livraison Rapide & Itérative</h3>
-                                <p class="text-gray-400 text-sm">MVP en 2 semaines, puis amélioration continue. Vous voyez les résultats rapidement, pas dans 6 mois.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg mb-2">Rigueur Scientifique</h3>
-                                <p class="text-gray-600 text-sm">Statisticien de formation, mes modèles sont robustes, documentés et explicables. Zéro "boîte noire".</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section (keep existing) -->
-    <section id="services" class="py-24 relative bg-black/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                    Mes <span class="gradient-text">Services Freelance</span>
-                </h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-                    Des solutions sur-mesure pour vos besoins en Data Science et Business Intelligence
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service cards remain the same as before -->
-                <!-- Service 1 -->
-                <div class="card-hover bg-white rounded-2xl p-8 fade-in stagger-1" style="border:1px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.06);">
-                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3" style="color:#1A3C6E;">Dashboards & BI</h3>
-                    <p class="text-gray-500 mb-6">
-                        Création de tableaux de bord interactifs pour visualiser vos KPIs en temps réel.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Design & développement de dashboards</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700">Connexion multi-sources</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Automatisation des rapports</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Services 2-6 similar structure... (keeping previous code) -->
-                <div class="card-hover bg-white rounded-2xl p-8 fade-in stagger-2" style="border:1px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.06);">
-                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3" style="color:#1A3C6E;">Machine Learning</h3>
-                    <p class="text-gray-500 mb-6">
-                        Développement de modèles prédictifs pour automatiser vos décisions.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Classification & régression</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Séries temporelles</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Optimisation modèles</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-white rounded-2xl p-8 fade-in stagger-3" style="border:1px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.06);">
-                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3" style="color:#1A3C6E;">Data Engineering</h3>
-                    <p class="text-gray-500 mb-6">
-                        Conception de pipelines pour traiter de gros volumes efficacement.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>ETL & pipelines</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Modélisation BDD</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>SQL avancé</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-white rounded-2xl p-8 fade-in stagger-1" style="border:1px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.06);">
-                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3" style="color:#1A3C6E;">Analyses Statistiques</h3>
-                    <p class="text-gray-500 mb-6">
-                        Études statistiques approfondies avec rigueur scientifique.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>A/B testing</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Analyses de tendances</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Rapports complets</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card-hover bg-white rounded-2xl p-8 fade-in stagger-2" style="border:1px solid #e5e7eb;box-shadow:0 2px 16px rgba(26,60,110,0.06);">
-                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3" style="color:#1A3C6E;">Automatisation</h3>
-                    <p class="text-gray-500 mb-6">
-                        Scripts automatisés pour gagner du temps sur les tâches répétitives.
-                    </p>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Rapports automatisés</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Web scraping</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="check-icon" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span>Workflows Python/R</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects with Case Studies (ENHANCED) -->
-    <section id="projets" class="py-24 relative" style="background:#ffffff;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                    Mes <span class="gradient-text">Cas Clients</span>
-                </h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-                    Des projets concrets avec résultats mesurables
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 - WITH CASE STUDY -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="relative h-48 overflow-hidden">
-    <img src="rapport_resto.png" 
-         alt="Dashboard Power BI Restaurateurs" 
-         class="w-full h-full object-cover"
-         loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-yellow-500/20 text-yellow-300">Power BI</span>
-                            <span class="project-badge bg-orange-500/20 text-orange-300">BI</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Dashboard Power BI Restaurateurs</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Centralisation multi-sources et KPIs temps réel.
-                        </p>
-                        
-                        <!-- Case Study Toggle -->
-                        <button onclick="toggleCaseStudy('case1')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-                            <span> Voir le cas client</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <!-- Expandable Case Study -->
-                        <div id="case1" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-                            <div class="space-y-3 text-sm">
-                                <div>
-                                    <strong class="text-orange-400"> Problème:</strong>
-                                    <p class="text-gray-400 mt-1">Une chaîne de restauration passait 4h/jour à compiler des données Excel disparates (caisse, Uber Eats, Deliveroo).</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Solution:</strong>
-                                    <p class="text-gray-400 mt-1">Dashboard Power BI centralisé avec rafraîchissement automatique toutes les 2h.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Résultats:</strong>
-                                    <p class="text-gray-400 mt-1">
-                                        • 4h → 30 sec pour voir les KPIs<br>
-                                        • +15% de marge sur 3 mois<br>
-                                        • Décisions basées sur la data en temps réel
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <a href="rapport_resto.pdf" download class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Télécharger rapport</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 - WITH CASE STUDY -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="relative h-48 overflow-hidden">
-    <img src="defaut.png" alt="Prédiction de Défaut de Prêt" class="w-full h-full object-cover" loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-green-500/20 text-green-300">Shiny</span>
-                            <span class="project-badge bg-orange-500/20 text-orange-300">ML</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Prédiction de Défaut de Prêt</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Modèle ML pour optimiser le risque financier.
-                        </p>
-                        
-                        <button onclick="toggleCaseStudy('case2')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-                            <span> Voir le cas client</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <div id="case2" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-                            <div class="space-y-3 text-sm">
-                                <div>
-                                    <strong class="text-orange-400"> Problème:</strong>
-                                    <p class="text-gray-400 mt-1">Institution financière perdait 2M€/an sur défauts de paiement non anticipés.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Solution:</strong>
-                                    <p class="text-gray-400 mt-1">Modèle de classification ML avec interface Shiny pour scorer les demandes en temps réel.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Résultats:</strong>
-                                    <p class="text-gray-400 mt-1">
-                                        • 85% de précision sur la prédiction<br>
-                                        • -40% de défauts de paiement<br>
-                                        • ROI atteint en 4 mois
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <a href="https://mamadoudiop.shinyapps.io/MonAPP/" target="_blank" class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Voir le projet</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 - WITH CASE STUDY -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="relative h-48 overflow-hidden">
-    <img src="piezo.png" alt="Analyses piézométriques 190 sites" class="w-full h-full object-cover" loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-blue-500/20 text-blue-300">Python</span>
-                            <span class="project-badge bg-green-500/20 text-green-300">Stats</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Analyses piézométriques (190 sites)</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Détection de tendances et rapports automatisés.
-                        </p>
-                        
-                        <button onclick="toggleCaseStudy('case3')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-                            <span> Voir le cas client</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        
-                        <div id="case3" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-                            <div class="space-y-3 text-sm">
-                                <div>
-                                    <strong class="text-orange-400"> Problème:</strong>
-                                    <p class="text-gray-400 mt-1">Bureau d'études devait analyser manuellement 190 sites piézométriques. 3 mois de travail prévu.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Solution:</strong>
-                                    <p class="text-gray-400 mt-1">Script Python automatisé avec tests Mann-Kendall et génération de rapports PDF.</p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Résultats:</strong>
-                                    <p class="text-gray-400 mt-1">
-                                        • 3 mois → 2 semaines<br>
-                                        • 190 rapports techniques générés<br>
-                                        • -90% de temps d'analyse
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <a href="fiche_15.pdf" download class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Télécharger rapport</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Other projects without case studies... -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                   <div class="relative h-48 overflow-hidden">
-    <img src="arima.png" alt="Prévision séries temporelles" class="w-full h-full object-cover" loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-green-500/20 text-green-300">Shiny</span>
-                            <span class="project-badge bg-blue-500/20 text-blue-300">R</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Prévision séries temporelles</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Application pour modélisation avancée de séries temporelles.
-                        </p>
-                        <a href="https://mamadoudiop.shinyapps.io/SerieTemporelle/" target="_blank" class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Voir le projet</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                    <div class="relative h-48 overflow-hidden">
-    <img src="ml_defaut.png" alt="Risque de crédit Streamlit" class="w-full h-full object-cover" loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-red-500/20 text-red-300">Streamlit</span>
-                            <span class="project-badge bg-blue-800/20 text-orange-300">Python</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Risque de crédit - Streamlit</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Application web pour modélisation du risque de crédit.
-                        </p>
-                        <a href="https://mamadoustat.streamlit.app/" target="_blank" class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Voir le projet</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project Power BI Immobilier -->
-                <div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-                  <div class="relative h-48 overflow-hidden">
-    <img src="mais3.png" alt="Marché des Maisons de Campagne" class="w-full h-full object-cover" loading="lazy">
-</div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="project-badge bg-yellow-500/20 text-yellow-300">Power BI</span>
-                            <span class="project-badge bg-green-500/20 text-green-300">DAX</span>
-                            <span class="project-badge bg-teal-500/20 text-teal-300">Immobilier</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Marché des Maisons de Campagne en France</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Tableau de bord interactif analysant le marché immobilier rural français sur 2020–2025.
-                        </p>
-
-                        <button onclick="toggleCaseStudy('casePBI')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-                            <span> Voir le cas client</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-
-                        <div id="casePBI" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-                            <div class="space-y-3 text-sm">
-                                <div>
-                                    <strong class="text-orange-400"> Ce que le rapport couvre :</strong>
-                                    <p class="text-gray-400 mt-1">
-                                        • Vue nationale avec KPIs clés (prix médian, volume de ventes, surface moyenne)<br>
-                                        • Carte interactive des prix par département<br>
-                                        • Comparatif des 13 régions françaises<br>
-                                        • Analyse temporelle de l'évolution du marché
-                                    </p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Insights clés découverts :</strong>
-                                    <p class="text-gray-400 mt-1">
-                                        • Chute historique des volumes de ventes entre 2022 et 2024 (−27%)<br>
-                                        • La Haute-Savoie et la Corse restent les marchés les plus premium<br>
-                                        • La Creuse et la Nièvre offrent les meilleures opportunités pour les budgets serrés<br>
-                                        • Les prix ont résisté malgré la crise des volumes
-                                    </p>
-                                </div>
-                                <div>
-                                    <strong class="text-orange-400"> Outils utilisés :</strong>
-                                    <p class="text-gray-400 mt-1">Power BI · DAX · Power Query · Data Visualization</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="https://app.powerbi.com/reportEmbed?reportId=4ed782b8-98f7-4211-98ea-124b925db89e&autoAuth=true&ctid=25691d4d-d9a9-4fe9-8fe5-623b3db6fc47" target="_blank" class="inline-flex items-center space-x-2 text-orange-400 hover:text-orange-300 font-semibold">
-                            <span>Voir le rapport interactif</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-<!-- Project Analyse Financière -->
-<div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-    <div class="relative h-48 overflow-hidden">
-        <img src="analyse_financiere.png" alt="Analyse Financière des transactions clients en temps réel" class="w-full h-full object-cover" loading="lazy">
+      </div>
     </div>
-    <div class="p-6">
-        <div class="flex items-center gap-2 mb-3">
-            <span class="project-badge bg-yellow-500/20 text-yellow-300">Power BI</span>
-            <span class="project-badge bg-blue-500/20 text-blue-300">Finance</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Analyse Financière des transactions clients en temps réel</h3>
-        <p class="text-gray-500 text-sm mb-4">
-            Analyse Financière sous Power BI : Suivi des Transactions et Indicateurs Clés
-        </p>
 
-        <button onclick="toggleCaseStudy('case6')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-            <span> Voir le cas client</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-        </button>
-
-        <div id="case6" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-            <div class="space-y-3 text-sm">
-                <div>
-                    <strong class="text-orange-400"> Description :</strong>
-                    <p class="text-gray-400 mt-1">
-                        J'ai réalisé sur Power BI un tableau de bord d'analyse financière interactif permettant de suivre les transactions, les fees, les taxes et la performance globale par segment, région et typologie de clients.
-                    </p>
-                </div>
-                <div>
-                    <strong class="text-orange-400"> Ce que couvre le dashboard :</strong>
-                    <p class="text-gray-400 mt-1">
-                        • KPIs clés : montant total, nombre de transactions, valeur moyenne<br>
-                        • Analyse des tendances mensuelles<br>
-                        • Taux de succès / échec des transactions<br>
-                        • Répartition par segments clients, États et types de transactions<br>
-                        • Filtres dynamiques pour une lecture claire et exploitable
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Project Brazilian E-Commerce Olist -->
-<div class="card-hover bg-white rounded-2xl overflow-hidden group" style="border:1px solid #e5e7eb;box-shadow:0 2px 12px rgba(26,60,110,0.06);">
-    <div class="relative h-48 overflow-hidden">
-        <img src="ecommerce_olist.png" alt="Dashboard Power BI Brazilian E-Commerce Olist" class="w-full h-full object-cover" loading="lazy">
-    </div>
-    <div class="p-6">
-        <div class="flex items-center gap-2 mb-3">
-            <span class="project-badge bg-yellow-500/20 text-yellow-300">Power BI</span>
-            <span class="project-badge bg-pink-500/20 text-pink-300">E-commerce</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Dashboard Power BI - Brazilian E-Commerce Olist</h3>
-        <p class="text-gray-500 text-sm mb-4">
-            Ce dataset regroupe + de 100 000 commandes passées entre 2016 et 2018 sur des marketplaces brésiliennes.
-        </p>
-
-        <button onclick="toggleCaseStudy('case7')" class="text-orange-400 hover:text-orange-300 font-semibold text-sm mb-4 flex items-center gap-2">
-            <span> Voir le cas client</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-        </button>
-
-        <div id="case7" class="case-study rounded-xl p-4 mb-4" style="background:#f0f4fa;">
-            <div class="space-y-3 text-sm">
-                <div>
-                    <strong class="text-orange-400"> Axes explorés :</strong>
-                    <p class="text-gray-400 mt-1">
-                        • Évolution du chiffre d'affaires par année<br>
-                        • Répartition des types de paiement<br>
-                        • Distribution géographique des clients<br>
-                        • Top commandes par valeur
-                    </p>
-                </div>
-                <div>
-                    <strong class="text-orange-400"> Contexte :</strong>
-                    <p class="text-gray-400 mt-1">Pas un rendu ultra-poussé, mais une bonne occasion de pratiquer la modélisation et la mise en page sur Power BI.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                <!-- CTA Card -->
-                <div class="card-hover rounded-2xl overflow-hidden group flex items-center justify-center p-12" style="background:linear-gradient(135deg,#eef2f8,#fef4ee);border:2px dashed #1A3C6E;">
-                    <div class="text-center">
-                        <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2" style="color:#1A3C6E;">Votre projet ici ?</h3>
-                        <p class="text-gray-500 text-sm mb-4">
-                            Créons ensemble votre succès
-                        </p>
-                        <a href="#contact" class="inline-flex items-center space-x-2 gradient-text font-semibold">
-                            <span>Parlons-en</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section (NEW - SOCIAL PROOF) -->
-    <section class="py-24 relative" style="background:#f0f4fa;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                    Ce que disent <span class="gradient-text">mes clients</span>
-                </h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-                    Leur confiance est ma meilleure recommandation
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-1 gap-8 max-w-xl mx-auto">
-                <div class="testimonial-card rounded-2xl p-8 fade-in stagger-1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-xl font-bold">
-                            CA
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">Nicolas Pivaut</div>
-                            <div class="text-sm text-gray-500">Expert PrestaShop & WordPress</div>
-                        </div>
-                    </div>
-                    <div class="flex mb-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
-                    <p class="text-gray-600 text-sm italic">
-                        "J’ai eu l’occasion de travailler avec Mamadou et je le recommande vivement pour son sérieux, son professionnalisme et sa capacité à mener les missions à bien.
-Mamadou est une personne fiable, autonome et impliquée, avec une excellente capacité d’adaptation. La communication est fluide et le travail réalisé est de qualité, dans le respect des délais et des objectifs fixés. Je n’hésiterais pas à retravailler avec Mamadou et le recommande sans hésitation aux entreprises à la recherche d’un profil compétent et professionnel."
-                    </p>
-                </div>
-
-                <div class="testimonial-card rounded-2xl p-8 fade-in stagger-2">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-xl font-bold">
-                            BC
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">Bernard Charlotin</div>
-                            <div class="text-sm text-gray-500">Dirigeant ma-propriete.fr</div>
-                        </div>
-                    </div>
-                    <div class="flex mb-4">
-                        <span class="text-yellow-400">★★★★★</span>
-                    </div>
-                    <p class="text-gray-600 text-sm italic">
-                        "Bravo pour cet excellent travail. Mamadou s'est investi à fond pour analyser les données DVF très complexes et en réaliser les extractions dont nous avions besoin.
-                         Réactif et disponible, il a répondu à toutes nos demandes."
-                    </p>
-                </div>
-            </div>
-
-            <!-- Social Proof Badges -->
-            <div class="mt-16 text-center">
-                <p class="text-gray-500 mb-6">Retrouvez-moi sur :</p>
-                <div class="flex justify-center gap-6 flex-wrap">
-                    <a href="https://www.malt.fr/profile/mamadoudiop?origin=dashboard_update_profile" target="_blank" class="rounded-xl px-6 py-4 hover:shadow-md transition-all duration-300 hover-scale" style="background:#fff;border:1.5px solid #e5e7eb; transition-all duration-300 hover-scale">
-                        <div class="text-2xl font-bold gradient-text">Malt</div>
-                        <div class="text-sm text-gray-400 mt-1">Voir mon profil →</div>
-                    </a>
-                                          <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" class="rounded-xl px-6 py-4 hover:shadow-md transition-all duration-300 hover-scale" style="background:#fff;border:1.5px solid #e5e7eb; transition-all duration-300 hover-scale">
-                        <div class="text-2xl font-bold gradient-text">LinkedIn</div>
-                        <div class="text-sm text-gray-400 mt-1">Voir mon profil →</div>
-                    </a>
-                   
-                    <div class="rounded-xl px-6 py-4" style="background:#fff;border:1.5px solid #e5e7eb;">
-                        <div class="text-2xl font-bold gradient-text">95%</div>
-                        <div class="text-sm text-gray-400 mt-1">Clients satisfaits</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section (ENHANCED) -->
-    <section id="tarifs" class="py-24 relative" style="background:#ffffff;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                    Tarifs <span class="gradient-text">Transparents</span>
-                </h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">
-                    Des formules adaptées à vos besoins et votre budget
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Pricing 1 - TJM fusionné -->
-                <div class="pricing-card card-hover bg-white rounded-2xl p-8 fade-in stagger-1" style="border:1.5px solid #e5e7eb;box-shadow:0 4px 24px rgba(26,60,110,0.08);">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold mb-2" style="color:#1A3C6E;">TJM</h3>
-                        <div class="text-4xl font-bold gradient-text mb-2">350€</div>
-                        <p class="text-gray-500 text-sm">à partir de • HT</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3">
-                            <span class="check-icon mt-1" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700 text-sm">Missions courtes & longues</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="check-icon mt-1" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700 text-sm">Support ponctuel & consulting data</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="check-icon mt-1" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700 text-sm">Analyses statistiques & reporting</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="check-icon mt-1" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700 text-sm">Dashboards Power BI & Data Viz</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="check-icon mt-1" style="background:linear-gradient(135deg,#1A3C6E,#2B5FA0);">
-                                <svg class="w-3 h-3" fill="white" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </span>
-                            <span class="text-gray-700 text-sm">Modélisation statistique & ML</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block w-full text-center px-6 py-3 rounded-full font-semibold hover-scale" style="background:#f0f4fa;border:1.5px solid #1A3C6E;color:#1A3C6E;">
-                        Demander un devis
-                    </a>
-                </div>
-
-                </div>
-
-            <p class="text-center text-gray-500 mt-12 text-sm">
-                 Tous les tarifs sont HT. <strong>Devis personnalisé fourni après le discovery call gratuit.</strong><br>
-                <span style="color:#E8630A;">Forfaits spéciaux disponibles pour startups et associations.</span>
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative" style="background:#f0f4fa;">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="rounded-3xl p-12 fade-in" style="background:#ffffff;border:1.5px solid #e5e7eb;box-shadow:0 8px 40px rgba(26,60,110,0.1);">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:#1A3C6E;">
-                        Démarrons votre <span style="color:#E8630A;">projet</span>
-                    </h2>
-                    <p class="text-gray-600 text-lg">
-                        Remplissez ce formulaire ou envoyez-moi un email. <strong>Réponse sous 24h garantie.</strong>
-                    </p>
-                </div>
-                
-                <form class="space-y-6" id="contactForm" onsubmit="sendEmail(event)">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold mb-2 text-gray-700">Nom *</label>
-                            <input type="text" name="name" required placeholder="Votre nom">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2 text-gray-700">Email *</label>
-                            <input type="email" name="email" required placeholder="votre@email.com">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Entreprise</label>
-                        <input type="text" name="company" placeholder="Nom de votre entreprise">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Type de projet *</label>
-                        <select name="project-type" required>
-                            <option value="" disabled selected>Sélectionnez...</option>
-                            <option value="dashboard">Dashboard / BI</option>
-                            <option value="ml">Machine Learning</option>
-                            <option value="data-engineering">Data Engineering</option>
-                            <option value="stats">Analyses Statistiques</option>
-                            <option value="automation">Automatisation & Reporting</option>
-                            <option value="other">Autre</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Budget estimé</label>
-                        <select name="budget">
-                            <option value="" disabled selected>Sélectionnez...</option>
-                            <option value="< 1000€">< 1 000€</option>
-                            <option value="1000-3000€">1 000€ - 3 000€</option>
-                            <option value="3000-5000€">3 000€ - 5 000€</option>
-                            <option value="5000-10000€">5 000€ - 10 000€</option>
-                            <option value="> 10000€">> 10 000€</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-semibold mb-2 text-gray-700">Décrivez votre projet *</label>
-                        <textarea name="message" required rows="5" placeholder="Parlez-moi de vos besoins, objectifs, et contraintes..."></textarea>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button type="submit" id="submitBtn" class="flex-1 gradient-bg px-8 py-4 rounded-full font-semibold hover-scale text-white">
-                            Envoyer ma demande
-                        </button>
-                        <a href="mailto:mamadoudiop084@gmail.com" class="flex-1 px-8 py-4 rounded-full font-semibold hover-scale text-center text-gray-800" style="background:#f0f4fa;border:1.5px solid #1A3C6E;color:#1A3C6E;">
-                            ✉️ Ou m'envoyer un email
-                        </a>
-                    </div>
-                </form>
-                <div id="formStatus" style="display:none;margin-top:16px;padding:14px 20px;border-radius:10px;font-weight:600;text-align:center;"></div>
-                
-                <div class="mt-12 pt-8" style="border-top:1px solid #e5e7eb;">
-                    <div class="grid md:grid-cols-3 gap-6 text-center">
-                        <div>
-                            <div class="text-3xl mb-2">🧡</div>
-                            <p class="text-sm text-gray-500">Malt</p>
-                            <a href="https://www.malt.fr/profile/mamadoudiop?origin=dashboard_update_profile" target="_blank" class="text-orange-400 font-semibold text-sm">Voir mon profil</a>
-                        </div>
-                        <div>
-                            <div class="text-3xl mb-2">💼</div>
-                            <p class="text-sm text-gray-500">LinkedIn</p>
-                            <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" class="text-orange-400 font-semibold text-sm">Voir mon profil</a>
-                        </div>
-                        <div>
-                            <div class="text-3xl mb-2">⏱️</div>
-                            <p class="text-sm text-gray-500">Disponibilité</p>
-                            <p class="font-semibold text-sm" style="color:#1A3C6E;">Immédiate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  <!-- Footer -->
-    <footer class="py-12" style="background:#1A3C6E;border-top:none;">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-blue-200">© 2025 Mamadou, NRM DATA - Statisticien & Data Analyst Freelance. Tous droits réservés.</p>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" class="text-blue-200 hover:text-orange-400 transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/Mamadou1008" target="_blank" class="text-blue-200 hover:text-orange-400 transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61594923294589" target="_blank" class="text-blue-200 hover:text-orange-400 transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Simple Chatbot Toggle (INNOVATION TOUCH) -->
-    <div class="chatbot-toggle" onclick="toggleChatbot()">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+    <div class="scene flat" id="scene" role="img" aria-label="Exemple de tableau de bord de suivi d'activité pour un restaurant et d'une prévision de chiffre d'affaires">
+      <!-- Plan éloigné, flou de profondeur -->
+      <div class="panel panel-far" aria-hidden="true">
+        <svg viewBox="0 0 300 190">
+          <text x="16" y="26" font-size="12" fill="var(--muted)" font-family="inherit">Niveau piézométrique moyen</text>
+          <g fill="var(--teal)" opacity=".75">
+            <rect x="20" y="120" width="14" height="50"/><rect x="40" y="104" width="14" height="66"/><rect x="60" y="112" width="14" height="58"/><rect x="80" y="92" width="14" height="78"/><rect x="100" y="98" width="14" height="72"/><rect x="120" y="80" width="14" height="90"/><rect x="140" y="86" width="14" height="84"/><rect x="160" y="70" width="14" height="100"/><rect x="180" y="74" width="14" height="96"/><rect x="200" y="60" width="14" height="110"/><rect x="220" y="66" width="14" height="104"/><rect x="240" y="52" width="14" height="118"/><rect x="260" y="56" width="14" height="114"/>
+          </g>
+          <line x1="20" y1="124" x2="276" y2="50" stroke="var(--ochre)" stroke-width="2"/>
         </svg>
+      </div>
+
+      <!-- Plan principal : tableau de bord -->
+      <div class="panel panel-main" aria-hidden="true">
+        <div class="panel-bar"><b>Restaurant Opéra · Suivi quotidien</b><span><span class="chip">14 derniers jours</span> <span class="chip">Tous canaux</span></span></div>
+        <svg viewBox="0 0 560 330" font-family="Schibsted Grotesk, Arial, sans-serif">
+          <!-- KPI -->
+          <g>
+            <rect x="16" y="14" width="168" height="72" rx="6" fill="var(--paper)"/>
+            <text x="30" y="38" font-size="12" fill="var(--muted)">Chiffre d'affaires du jour</text>
+            <text x="30" y="70" font-size="24" font-weight="600" fill="var(--ink)">4 872 €</text>
+            <text x="128" y="70" font-size="12" font-weight="600" fill="#2F9E62">+6,1 %</text>
+            <rect x="196" y="14" width="168" height="72" rx="6" fill="var(--paper)"/>
+            <text x="210" y="38" font-size="12" fill="var(--muted)">Panier moyen</text>
+            <text x="210" y="70" font-size="24" font-weight="600" fill="var(--ink)">18,40 €</text>
+            <text x="310" y="70" font-size="12" font-weight="600" fill="#2F9E62">+0,8 %</text>
+            <rect x="376" y="14" width="168" height="72" rx="6" fill="var(--paper)"/>
+            <text x="390" y="38" font-size="12" fill="var(--muted)">Marge brute</text>
+            <text x="390" y="70" font-size="24" font-weight="600" fill="var(--ink)">67,9 %</text>
+            <text x="476" y="70" font-size="12" font-weight="600" fill="#C2513A">−0,4 pt</text>
+          </g>
+          <!-- Courbe CA -->
+          <text x="16" y="118" font-size="12.5" font-weight="600" fill="var(--ink)">CA par jour</text>
+          <g stroke="var(--line)" stroke-width="1">
+            <line x1="16" y1="140" x2="352" y2="140"/><line x1="16" y1="190" x2="352" y2="190"/><line x1="16" y1="240" x2="352" y2="240"/><line x1="16" y1="290" x2="352" y2="290"/>
+          </g>
+          <path d="M16 236 L42 222 L68 228 L94 204 L120 198 L146 170 L172 182 L198 226 L224 214 L250 208 L276 186 L302 160 L328 172 L352 150 L352 290 L16 290 Z" fill="var(--teal)" opacity=".12"/>
+          <polyline points="16,236 42,222 68,228 94,204 120,198 146,170 172,182 198,226 224,214 250,208 276,186 302,160 328,172 352,150" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="352" cy="150" r="4" fill="var(--surface)" stroke="var(--teal)" stroke-width="2"/>
+          <text x="16" y="312" font-size="11" fill="var(--muted)">18 sept.</text><text x="318" y="312" font-size="11" fill="var(--muted)">1er oct.</text>
+          <!-- Répartition par canal -->
+          <text x="380" y="118" font-size="12.5" font-weight="600" fill="var(--ink)">Répartition par canal</text>
+          <g font-size="12" fill="var(--text)">
+            <text x="380" y="150">Caisse</text><rect x="380" y="158" width="164" height="10" rx="2" fill="var(--paper)"/><rect x="380" y="158" width="101" height="10" rx="2" fill="var(--teal)"/><text x="544" y="150" text-anchor="end" font-weight="600" fill="var(--ink)">62 %</text>
+            <text x="380" y="200">Uber Eats</text><rect x="380" y="208" width="164" height="10" rx="2" fill="var(--paper)"/><rect x="380" y="208" width="41" height="10" rx="2" fill="var(--ochre)"/><text x="544" y="200" text-anchor="end" font-weight="600" fill="var(--ink)">25 %</text>
+            <text x="380" y="250">Deliveroo</text><rect x="380" y="258" width="164" height="10" rx="2" fill="var(--paper)"/><rect x="380" y="258" width="22" height="10" rx="2" fill="var(--muted)"/><text x="544" y="250" text-anchor="end" font-weight="600" fill="var(--ink)">13 %</text>
+          </g>
+          <text x="380" y="300" font-size="11" fill="var(--muted)">Actualisé il y a 12 min</text>
+        </svg>
+      </div>
+
+      <!-- Premier plan : prévision -->
+      <div class="panel panel-front" aria-hidden="true">
+        <div class="panel-bar"><b>Prévision CA, 8 semaines</b><span>ARIMA</span></div>
+        <svg viewBox="0 0 300 150" font-family="Schibsted Grotesk, Arial, sans-serif">
+          <line x1="150" y1="12" x2="150" y2="128" stroke="var(--line)" stroke-dasharray="3 3"/>
+          <path d="M150 74 L180 60 L210 66 L240 50 L270 52 L290 42 L290 92 L270 96 L240 98 L210 108 L180 100 L150 80 Z" fill="var(--ochre)" opacity=".16"/>
+          <polyline points="10,104 30,96 50,100 70,84 90,90 110,76 130,82 150,77" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          <polyline points="150,77 180,80 210,87 240,74 270,74 290,67" fill="none" stroke="var(--ochre)" stroke-width="2" stroke-dasharray="5 4"/>
+          <text x="12" y="142" font-size="11" fill="var(--muted)">Historique</text>
+          <text x="156" y="142" font-size="11" fill="var(--muted)">Prévision, IC 95 %</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stack" aria-label="Compétences">
+  <div class="wrap">
+    <div class="col"><h3>BI et data visualisation</h3><p>Power BI (DAX, Power Query), Excel et VBA, R Shiny, Dash, construction de KPI.</p></div>
+    <div class="col"><h3>Langages</h3><p>Python (pandas, NumPy, scikit-learn), R, SQL, SAS.</p></div>
+    <div class="col"><h3>Statistiques et ML</h3><p>Inférence, modélisation, séries temporelles (ARIMA), tests de tendance, scoring de risque.</p></div>
+    <div class="col"><h3>Outils</h3><p>Git et GitHub, Streamlit, shinyapps.io, Power BI Service.</p></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Ce que je fais pour vous</h2>
+      <p>Des missions courtes ou longues, en régie ou au forfait, toujours avec un livrable que vos équipes savent utiliser seules.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="26" height="20" rx="2"/><path d="M8 20v-4M13 20v-8M18 20v-6M23 20v-10"/></svg>
+        <div><h3>Tableaux de bord et BI</h3><p>Vos indicateurs clés réunis dans un tableau de bord interactif, alimenté automatiquement par vos différentes sources.</p><p class="tags">Conception, connexion multi-sources, rafraîchissement automatique</p></div>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 24c4-1 6-8 10-8s5 5 9 3 4-10 5-12"/><path d="M4 28h24" /></svg>
+        <div><h3>Analyses statistiques</h3><p>Des études rigoureuses pour répondre à une question précise : tendances, comparaisons, tests A/B, rapports détaillés.</p><p class="tags">Statistiques descriptives et inférentielles, A/B testing, rapports</p></div>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="8" cy="24" r="3"/><circle cx="24" cy="16" r="3"/><path d="M11 9l10 6M11 23l10-6"/></svg>
+        <div><h3>Modèles prédictifs</h3><p>Prévoir une demande, scorer un risque, classer des clients. Des modèles documentés et explicables, sans boîte noire.</p><p class="tags">Classification, régression, séries temporelles</p></div>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="16" cy="7" rx="10" ry="3.5"/><path d="M6 7v18c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5V7M6 16c0 2 4.5 3.5 10 3.5s10-1.5 10-3.5"/></svg>
+        <div><h3>Préparation des données</h3><p>Des données propres et structurées avant toute analyse : pipelines ETL, modélisation de bases, requêtes SQL avancées.</p><p class="tags">ETL, modélisation de bases de données, SQL</p></div>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M26 16a10 10 0 1 1-3-7.1"/><path d="M26 5v6h-6"/></svg>
+        <div><h3>Automatisation</h3><p>Les rapports et extractions que vous refaites chaque semaine, produits automatiquement par un script Python ou R.</p><p class="tags">Rapports automatisés, web scraping, workflows Python et R</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cas clients</h2>
+      <p>Quatre projets détaillés, avec le problème de départ, la solution livrée et les résultats mesurés.</p>
     </div>
 
-    <div id="chatbot" class="chatbot-window">
-        <div class="p-6" style="border-bottom:1px solid #e5e7eb;">
-            <div class="flex justify-between items-center">
-                <h3 class="font-bold text-lg" style="color:#1A3C6E;">💬 Besoin d'aide ?</h3>
-                <button onclick="toggleChatbot()" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
+    <article class="case">
+      <div class="case-media">
+        <figure class="shot"><img src="https://nrmdata.fr/analyse_financiere.png" alt="Tableau de bord Power BI d'analyse financière des transactions clients" loading="lazy" onerror="this.parentNode.classList.add('noimg')"><figcaption class="fallback"><span>Analyse financière des transactions</span><small>Power BI</small></figcaption></figure>
+      </div>
+      <div>
+        <p class="tools">Power BI, DAX, Power Query</p>
+        <h3>Analyse financière des transactions clients en temps réel</h3>
+        <p style="margin-top:14px">Suivi des transactions et des indicateurs clés : un tableau de bord interactif pour piloter les montants, les frais, les taxes et la performance globale par segment, par région et par type de client.</p>
+        <dl>
+          <dt>Ce que couvre le tableau de bord</dt>
+          <dd>Montant total, nombre de transactions et valeur moyenne. Tendances mensuelles. Taux de succès et d'échec des transactions. Répartition par segment client, par État et par type de transaction.</dd>
+          <dt>Pour qui</dt>
+          <dd>Directions financières et équipes de contrôle qui doivent repérer rapidement une anomalie ou une dérive des frais, grâce à des filtres dynamiques.</dd>
+        </dl>
+        <a class="more" href="#contact">Démonstration sur demande</a>
+      </div>
+    </article>
+
+    <article class="case reverse">
+      <div class="case-media">
+        <figure class="shot"><img src="https://nrmdata.fr/defaut.png" alt="Application Shiny de scoring de défaut de prêt" loading="lazy" onerror="this.parentNode.classList.add('noimg')"><figcaption class="fallback"><span>Prédiction de défaut de prêt</span><small>R Shiny</small></figcaption></figure>
+      </div>
+      <div>
+        <p class="tools">R, Shiny, machine learning</p>
+        <h3>Anticiper les défauts de paiement d'une institution financière</h3>
+        <dl>
+          <dt>Le problème</dt><dd>Les défauts de paiement non anticipés coûtaient environ 2 M€ par an.</dd>
+          <dt>La solution</dt><dd>Un modèle de classification et une interface Shiny pour scorer chaque demande de prêt en temps réel.</dd>
+        </dl>
+        <div class="results">
+          <div><strong>85 %</strong><span>de précision sur la prédiction</span></div>
+          <div><strong>−40 %</strong><span>de défauts de paiement</span></div>
+          <div><strong>4 mois</strong><span>pour atteindre le retour sur investissement</span></div>
         </div>
-        <div class="flex-1 p-6 overflow-y-auto">
-            <div class="space-y-4">
-                <div class="rounded-lg p-4" style="background:#eef2f8;">
-                    <p class="text-sm">👋 Bonjour ! Comment puis-je vous aider ?</p>
-                </div>
-                <div class="grid gap-2">
-                    <a href="#tarifs" class="rounded-lg p-3 text-sm transition-colors text-gray-700" style="background:#f0f4fa;" onmouseover="this.style.background='#e5eaf3'" onmouseout="this.style.background='#f0f4fa'">
-                        💰 Quels sont vos tarifs ?
-                    </a>
-                    <a href="#projets" class="rounded-lg p-3 text-sm transition-colors text-gray-700" style="background:#f0f4fa;" onmouseover="this.style.background='#e5eaf3'" onmouseout="this.style.background='#f0f4fa'">
-                        📁 Voir vos projets
-                    </a>
-                    <a href="#contact" class="rounded-lg p-3 text-sm transition-colors text-gray-700" style="background:#f0f4fa;" onmouseover="this.style.background='#e5eaf3'" onmouseout="this.style.background='#f0f4fa'">
-                        📧 Demander un devis
-                    </a>
-                    <a href="#services" class="rounded-lg p-3 text-sm transition-colors text-gray-700" style="background:#f0f4fa;" onmouseover="this.style.background='#e5eaf3'" onmouseout="this.style.background='#f0f4fa'">
-                        🛠️ Vos services
-                    </a>
-                </div>
-            </div>
+        <a class="more" href="https://mamadoudiop.shinyapps.io/MonAPP/" target="_blank" rel="noopener">Ouvrir l'application</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-media">
+        <figure class="shot"><img src="https://nrmdata.fr/piezo.png" alt="Fiche d'analyse piézométrique générée automatiquement" loading="lazy" onerror="this.parentNode.classList.add('noimg')"><figcaption class="fallback"><span>Analyses piézométriques</span><small>Python</small></figcaption></figure>
+      </div>
+      <div>
+        <p class="tools">Python, tests de Mann-Kendall, rapports PDF</p>
+        <h3>190 sites piézométriques analysés pour un bureau d'études</h3>
+        <dl>
+          <dt>Le problème</dt><dd>L'analyse manuelle des 190 sites était estimée à trois mois de travail.</dd>
+          <dt>La solution</dt><dd>Un script Python qui détecte les tendances par test de Mann-Kendall et génère un rapport PDF par site.</dd>
+        </dl>
+        <div class="results">
+          <div><strong>2 semaines</strong><span>au lieu de trois mois prévus</span></div>
+          <div><strong>190</strong><span>rapports techniques générés</span></div>
+          <div><strong>−90 %</strong><span>de temps d'analyse</span></div>
         </div>
-        <div class="p-4 style="border-top:1px solid #e5e7eb;">
-            <p class="text-xs text-gray-500 text-center">Réponse sous 24h garantie</p>
+        <a class="more" href="https://nrmdata.fr/fiche_15.pdf">Voir un exemple de fiche (PDF)</a>
+      </div>
+    </article>
+
+    <article class="case reverse">
+      <div class="case-media">
+        <figure class="shot"><img src="https://nrmdata.fr/mais3.png" alt="Rapport Power BI sur le marché des maisons de campagne en France" loading="lazy" onerror="this.parentNode.classList.add('noimg')"><figcaption class="fallback"><span>Marché des maisons de campagne</span><small>Power BI</small></figcaption></figure>
+      </div>
+      <div>
+        <p class="tools">Power BI, DAX, Power Query</p>
+        <h3>Marché des maisons de campagne en France, 2020 à 2025</h3>
+        <p style="margin-top:14px">Prix médian, volumes et surfaces par département et par région, avec une carte interactive des prix et un comparatif des 13 régions.</p>
+        <dl>
+          <dt>Ce que révèle l'analyse</dt>
+          <dd>La Haute-Savoie et la Corse restent les marchés les plus chers. La Creuse et la Nièvre offrent les meilleures opportunités pour les petits budgets. Les prix ont résisté malgré la chute des volumes.</dd>
+        </dl>
+        <div class="results">
+          <div><strong>−27 %</strong><span>de volumes de ventes entre 2022 et 2024</span></div>
+          <div><strong>13</strong><span>régions comparées</span></div>
+          <div><strong>6 ans</strong><span>d'évolution du marché, de 2020 à 2025</span></div>
         </div>
+        <a class="more" href="https://app.powerbi.com/reportEmbed?reportId=4ed782b8-98f7-4211-98ea-124b925db89e&autoAuth=true&ctid=25691d4d-d9a9-4fe9-8fe5-623b3db6fc47" target="_blank" rel="noopener">Ouvrir le rapport interactif</a>
+      </div>
+    </article>
+
+    <div class="others">
+      <h3>Autres réalisations</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Projet</th><th>Outils</th><th>Lien</th></tr></thead>
+          <tbody>
+            <tr><td>Tableau de bord pour une chaîne de restauration<small>Caisse, Uber Eats et Deliveroo centralisés, rafraîchis toutes les 2 heures : KPI consultables en 30 secondes au lieu de 4 heures, marge en hausse de 15 % en trois mois.</small></td><td>Power BI, DAX</td><td><a href="https://nrmdata.fr/rapport_resto.pdf">Rapport (PDF)</a></td></tr>
+            <tr><td>Prévision de séries temporelles<small>Application de modélisation ARIMA avec diagnostics et prévisions.</small></td><td>R, Shiny</td><td><a href="https://mamadoudiop.shinyapps.io/SerieTemporelle/" target="_blank" rel="noopener">Application</a></td></tr>
+            <tr><td>Modélisation du risque de crédit<small>Application web de scoring et d'exploration des variables.</small></td><td>Python, Streamlit</td><td><a href="https://mamadoustat.streamlit.app/" target="_blank" rel="noopener">Application</a></td></tr>
+            <tr><td>E-commerce Olist, Brésil<small>Plus de 100 000 commandes de 2016 à 2018 : chiffre d'affaires, paiements, répartition géographique.</small></td><td>Power BI</td><td>Sur demande</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="methode">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Comment se déroule une mission</h2>
+      <p>Une première version utilisable rapidement, puis des améliorations à partir de vos retours.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Appel découverte</h3><p>Nous faisons le point sur vos données, vos questions et vos contraintes.</p><span class="when">30 minutes, gratuit</span></li>
+      <li><h3>Cadrage et devis</h3><p>Je vous envoie un périmètre précis, un planning et un devis.</p><span class="when">Sous 48 h</span></li>
+      <li><h3>Première version</h3><p>Vous recevez un livrable fonctionnel à tester sur vos vraies données.</p><span class="when">Environ 2 semaines</span></li>
+      <li><h3>Ajustements et passation</h3><p>J'intègre vos retours, documente le travail et forme les personnes qui l'utiliseront.</p><span class="when">Selon le projet</span></li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap approach">
+    <blockquote>
+      « Une analyse n'a de valeur que si quelqu'un s'en sert pour décider. Je travaille pour que ce soit le cas dès la première version. »
+      <footer>Mamadou Diop</footer>
+    </blockquote>
+    <div class="principles">
+      <div><h3>Partir du besoin métier</h3><p>Chaque indicateur répond à une question que vous vous posez : marge, temps passé, risque, volume.</p></div>
+      <div><h3>Rendre les résultats compréhensibles</h3><p>Vos équipes non techniques comprennent les analyses et savent les utiliser au quotidien.</p></div>
+      <div><h3>Garder la rigueur d'un statisticien</h3><p>Des modèles robustes, documentés et explicables. Vous savez toujours d'où vient un chiffre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="avis" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><h2>Ils ont travaillé avec moi</h2></div>
+    <div class="quotes">
+      <figure class="quote" style="margin:0">
+        <p>« J'ai eu l'occasion de travailler avec Mamadou et je le recommande vivement pour son sérieux, son professionnalisme et sa capacité à mener les missions à bien. C'est une personne fiable, autonome et impliquée. La communication est fluide et le travail réalisé est de qualité, dans le respect des délais et des objectifs fixés. »</p>
+        <figcaption class="who"><span class="initials">NP</span><div><b>Nicolas Pivaut</b><span>Expert PrestaShop et WordPress</span></div></figcaption>
+      </figure>
+      <figure class="quote" style="margin:0">
+        <p>« Bravo pour cet excellent travail. Mamadou s'est investi à fond pour analyser les données DVF, très complexes, et en réaliser les extractions dont nous avions besoin. Réactif et disponible, il a répondu à toutes nos demandes. »</p>
+        <figcaption class="who"><span class="initials">BC</span><div><b>Bernard Charlotin</b><span>Dirigeant, ma-propriete.fr</span></div></figcaption>
+      </figure>
+    </div>
+    <div class="profiles">
+      <a class="btn btn-ghost" href="https://www.malt.fr/profile/mamadoudiop" target="_blank" rel="noopener">Profil Malt</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/Mamadou1008" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Parlons de votre projet</h2>
+      <p style="margin-top:14px;font-size:18px">Décrivez votre besoin en quelques lignes. Je vous réponds sous 24 heures ouvrées pour fixer un appel.</p>
+      <div class="rate">
+        <h3>Tarif journalier</h3>
+        <p class="price" style="margin-top:12px;color:#F4F6F5;font-size:48px">350 €<small>HT, à partir de</small></p>
+        <ul>
+          <li>Missions courtes ou longues</li>
+          <li>Tableaux de bord, analyses et modélisation</li>
+          <li>Conseil ponctuel et accompagnement</li>
+        </ul>
+        <p>Devis personnalisé après l'appel découverte. Conditions adaptées pour les startups et les associations.</p>
+      </div>
+      <div class="direct">
+        <span>Ou directement par e-mail :</span>
+        <a href="mailto:m.diop@nrmdata.fr">m.diop@nrmdata.fr</a>
+        <a href="mailto:mamadoudiop084@gmail.com">mamadoudiop084@gmail.com</a>
+      </div>
     </div>
 
-    <!-- Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close chatbot if open
-                    document.getElementById('chatbot').classList.remove('open');
-                }
-            });
-        });
+    <form id="contact-form" novalidate>
+      <div><label for="f-nom">Nom</label><input id="f-nom" name="name" autocomplete="name" required></div>
+      <div><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-ent">Entreprise <span>(facultatif)</span></label><input id="f-ent" name="company" autocomplete="organization"></div>
+      <div><label for="f-type">Type de projet</label>
+        <select id="f-type" name="project-type" required>
+          <option value="">Choisir</option><option>Tableau de bord et BI</option><option>Analyse statistique</option><option>Modèle prédictif</option><option>Préparation des données</option><option>Automatisation</option><option>Autre</option>
+        </select></div>
+      <div class="full"><label for="f-budget">Budget estimé <span>(facultatif)</span></label>
+        <select id="f-budget" name="budget">
+          <option value="">Je ne sais pas encore</option><option>Moins de 1 000 €</option><option>1 000 à 3 000 €</option><option>3 000 à 5 000 €</option><option>5 000 à 10 000 €</option><option>Plus de 10 000 €</option>
+        </select></div>
+      <div class="full"><label for="f-msg">Votre projet</label><textarea id="f-msg" name="message" required placeholder="Vos données, la question à laquelle vous voulez répondre, votre échéance."></textarea></div>
+      <div class="full" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+        <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+        <span class="form-note" id="form-status" role="status">Réponse sous 24 heures ouvrées.</span>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
 
-        // Stats Counter Animation
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    element.textContent = target + (target === 100 ? '%' : '+');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + (target === 100 ? '%' : '+');
-                }
-            }, 16);
-        }
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 NRM DATA, Mamadou Diop. Data analyst et statisticien freelance.</span>
+    <nav aria-label="Réseaux">
+      <a href="https://www.linkedin.com/in/mamadoudiop1048/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Mamadou1008" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.malt.fr/profile/mamadoudiop" target="_blank" rel="noopener">Malt</a>
+    </nav>
+  </div>
+</footer>
 
-        // Trigger counter animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-counter');
-                    counters.forEach(counter => {
-                        animateCounter(counter);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script>
+// Mise en perspective de la scène au chargement
+(function(){
+  var s=document.getElementById('scene');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){s.classList.remove('flat');return}
+  requestAnimationFrame(function(){setTimeout(function(){s.classList.remove('flat')},150)});
+})();
+// Menu mobile
+(function(){
+  var b=document.querySelector('.menu-toggle'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+})();
+/* ===== ENVOI DU FORMULAIRE (EmailJS, même configuration que l'ancien site) ===== */
+var EMAILJS_SERVICE  = 'service_w2g5flx';
+var EMAILJS_TEMPLATE = 'template_15v4yqg';
+var EMAILJS_PUBLIC_KEY = 'eLc361bd_zQtJ76bz';
 
-        document.querySelectorAll('.stat-counter').forEach(counter => {
-            observer.observe(counter.closest('section'));
-        });
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,st=document.getElementById('form-status'),btn=f.querySelector('button[type=submit]'),missing=[];
+  ['name','email','project-type','message'].forEach(function(n){if(!f.elements[n].value.trim())missing.push(f.elements[n])});
+  if(f.email.value&&!/^\S+@\S+\.\S+$/.test(f.email.value))missing.push(f.email);
+  if(missing.length){st.textContent='Renseignez les champs nom, e-mail, type de projet et description.';st.className='form-note';missing[0].focus();return}
 
-        // Case Study Toggle
-        function toggleCaseStudy(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.classList.toggle('open');
-            }
-        }
+  var formData={
+    from_name:    f.elements['name'].value,
+    from_email:   f.email.value,
+    company:      f.company.value,
+    project_type: f['project-type'].value,
+    budget:       f.budget.value || 'Non précisé',
+    message:      f.message.value
+  };
 
-        // Chatbot Toggle
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbot');
-            chatbot.classList.toggle('open');
-        }
-    </script>
+  // Secours si EmailJS n'est pas disponible : ouverture de la messagerie du visiteur
+  if(!window.emailjs || !EMAILJS_PUBLIC_KEY){
+    var body='Nom : '+formData.from_name+'\nE-mail : '+formData.from_email+'\nEntreprise : '+(formData.company||'-')+'\nType de projet : '+formData.project_type+'\nBudget : '+formData.budget+'\n\n'+formData.message;
+    window.location.href='mailto:mamadoudiop084@gmail.com?subject='+encodeURIComponent('Demande de projet : '+formData.project_type)+'&body='+encodeURIComponent(body);
+    st.textContent='Demande prête dans votre messagerie. Il ne reste qu\'à l\'envoyer.';st.className='form-status';
+    return;
+  }
 
-    <script>
-    function sendEmail(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        const status = document.getElementById('formStatus');
-
-        btn.disabled = true;
-        btn.textContent = 'Envoi en cours...';
-
-        const form = document.getElementById('contactForm');
-        const formData = {
-            from_name:    form.querySelector('[name="name"]').value,
-            from_email:   form.querySelector('[name="email"]').value,
-            company:      form.querySelector('[name="company"]') ? form.querySelector('[name="company"]').value : '',
-            project_type: form.querySelector('[name="project-type"]').value,
-            budget:       form.querySelector('[name="budget"]').value,
-            message:      form.querySelector('[name="message"]').value
-        };
-
-        emailjs.send('service_w2g5flx', 'template_15v4yqg', formData)
-            .then(function() {
-                status.style.display = 'block';
-                status.style.background = '#e8f5e9';
-                status.style.color = '#166534';
-                status.style.border = '1.5px solid #bbf7d0';
-                status.innerHTML = '&#x2705; Message envoyé avec succès ! Je vous répondrai sous 24h.';
-                form.reset();
-                btn.disabled = false;
-                btn.textContent = 'Envoyer ma demande';
-            }, function(error) {
-                status.style.display = 'block';
-                status.style.background = '#fff5f5';
-                status.style.color = '#991b1b';
-                status.style.border = '1.5px solid #fecaca';
-                status.innerHTML = '&#x274C; Erreur d\'envoi. Écrivez-moi directement à mamadoudiop084@gmail.com';
-                btn.disabled = false;
-                btn.textContent = 'Envoyer ma demande';
-            });
-    }
-    </script>
+  btn.disabled=true;btn.textContent='Envoi en cours…';
+  emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,formData,{publicKey:EMAILJS_PUBLIC_KEY})
+    .then(function(){f.reset();st.textContent='Merci, votre demande est envoyée. Réponse sous 24 heures ouvrées.';st.className='form-status';},
+          function(){st.textContent='L\'envoi a échoué. Écrivez directement à mamadoudiop084@gmail.com.';st.className='form-note';})
+    .then(function(){btn.disabled=false;btn.textContent='Envoyer la demande';});
+});
+</script>
 </body>
 </html>
